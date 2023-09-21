@@ -13,7 +13,7 @@
     footer.classList.add('hide');
   
     Reveal.on('slidechanged', event => {  
-      if(Reveal.isFirstSlide()) {
+      if(Reveal.isFirstSlide() || Reveal.isLastSlide()) {
         slideNo.classList.add('hide');
         footer.classList.add('hide');
       } else {

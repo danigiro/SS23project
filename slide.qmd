@@ -1,16 +1,15 @@
 ---
 title: "Multiverse Analisys"
 subtitle: "**Summer School 2023** <br> *Replicability crisis in Science?*"
-date: 2023/09/22
-date-format: "DD MMM YYYY"
+date: last-modified
+date-format: "[22 September] YYYY [- Padova (Italy)]"
 author: 
-  - name: Patric Dolmeta
-    affiliations: Bocconi University
-  - name: Anna Gerna
-    affiliations: Roma3 University 
-  - name: Daniele Girolimetto
-    url: "danigiro.github.io/"
-    affiliations: University of Padova
+  - name: "**Patric Dolmeta**"
+    affiliations: "*Bocconi University*"
+  - name: "**Anna Gerna**"
+    affiliations: "*Roma3 University*"
+  - name: "**Daniele Girolimetto**"
+    affiliations: "*University of Padova*"
 title-slide-attributes:
   data-background-image: theme/image.png
 format: 
@@ -18,9 +17,14 @@ format:
     template-partials:
         - theme/title-slide.html
     slide-number: c
+    margin: 0.1
     footer: "Multiverse Analisys - Replicability crisis in Science?"
     include-after-body: theme/clean_title_page.html
-    fontsize: 24pt
+    fontsize: 26pt
+    toc: true
+    toc-depth: 1
+    progress: false
+bibliography: "scholar.bib"
 ---
 ```{r}
 #| echo: false
@@ -29,7 +33,8 @@ library(ggplot2)
 library(gridExtra)
 ```
 
-## Why data processing is an arbitrary process
+
+## What is data processing
 
 When designing an experiment, data are not just passively recorded, but actively constructed so that they are ready to be analysed. 
 
@@ -40,7 +45,7 @@ When designing an experiment, data are not just passively recorded, but actively
 As a result, raw data do not uniquely give rise to a single data set for analysis but rather to a **multiverse of data sets**. 
 And as each data set in this data multiverse an lead to a different statistical result, the data multiverse directly implies a **multiverse of statistical result**
 
-## Why data processing is an arbitrary process
+## What is data processing
 
 - Selective reporting without justification: researchers' choices appear to be arbitrary
 - This **arbitrariness** is then inherited by the statistical result
@@ -55,35 +60,70 @@ And as each data set in this data multiverse an lead to a different statistical 
 
 - It can be performed on large or small datasets, regardless of the **inferential framework** (frequentist or Bayesian), and regardless of the specific way uncertainty is quantified: a p value, an effect size, a confidence interval, or a Bayes factor. 
 
-## What is a multiverse analysis 
-
-Here we focus on the multiverse of statistical results originating from the data multiverse (i.e., the different reasonable choices in data processing) but this framework can be applied to choices at the **model level**.
-
 ## Goals 
 
 - Multiverse analysis offers an idea of how much the conclusions change because of arbitrary choices 
 
 - It enhances the transparency in reporting results 
 
-- It helps identifying the key choices that conclusions hinge on, facilitating attempt of replication
+- It helps identifying the key choices that conclusions hinge on, facilitating attempts of replication
 
 -  It helps identifying the level of uncertainty related to the data set, because a pattern of non significant results indicates that the data are not strong enough to draw conclusions
 
 - It reduces the problem of selective reporting, because the fragility of results is made explicit
 
-## What is **not** a multiverse analysis 
+## How to do it
 
--  It has nothing to do with pre-registration
+When setting up an experiment or performing a statistical analysis there are several degrees of freedom. A multiverse analysis consists in 
 
--  It is not a formal test of questionable research practices
+- identifyig sets of defensible analysis choices
+- implementing them 
+- reporting the outcomes of all possible choice combinations
 
--  It does not produce a single value summarizing the evidential value of the data. 
+![](theme/Analysis.png){width=80%}
+
+## Where to intervene
+
+- Data substitution: which raw datasets to use (collected/simulated) 
+- Data processing: how to process the raw data (data transformation, outlier detection)
+- Modeling choices: Statistical model setup (distributional alternatives, parameter tuning, multiplicity correction, prior choices, significance levels) 
+- Presentation: different ways of presenting analysis outcomes. 
 
 
 ## TODO
 
-..
+## Female hurricanes are deadlier than male hurricanes
 
+- Jung et al. study responses to natural hazards on basis of social science factors
+
+- Severe hurricanes with feminine names causes more fatalities
+
+- Do people judge hurricane risks in the context of gender-based expectations?
+
+- Perception about risk and intensity is associated with sex through the name assigned to the phenomenon 
+
+- Judgment is congruent with the social roles and expectations corresponding to the sex 
+
+## Jung's universe 
+
+- The data: information on 94 hurricanes from National Oceanic and Atmospheric Administration (NOAA) such as number of deaths (deaths), minimum pressure (pressure), wind speed (wind), property damages (damage), severity (category), 11-point femininity scale for the name.
+
+- The processing: exclusion of the two most deadly and the three most damaging instances.  
+
+- The model: poisson regression model with number of deaths as response and femininity, damages, standardized pressure and their interactions with femininity as predictors.
+
+## The multiverse
+
+- Data processing: dichotomize the femininity variable
+
+- Outlier detection:
+  
+  - damage outlier: 0, 2 or 3 most deadly and the three most damaging instances
+  - death oulier: 0, 1 or 2 most deadly and the three most damaging instances
+
+- Model: log-transform linear regession or Poisson regression 
+
+- Covariates choices: choose which covariates and which interactions between them. 
 
 ## Female name vs male name
 
@@ -91,13 +131,13 @@ Here we focus on the multiverse of statistical results originating from the data
 plot(g) 
 ```
 
-## altro
+## Model choice effect
 
 ```{r}
 plot(gmod) 
 ```
 
-## altro
+## Significance of mean effect
 
 ::: {.panel-tabset}
 ### norm
@@ -124,12 +164,71 @@ plot(gcheck_perc)
 
 -  Not all options are necessarily exactly interchangeable
 
+## Is this replicability?
+
+Sticking to Machery's definition of replicability, tions should be conceived as involving
+the resampling of the experimental components when these are random factors. Each of the experimental components so treated can be the target of
+resampling. Most obviously, replications nearly always, but not necessarily,
+involve sampling another group of experimental units from the original
+population. But the three other experimental components can also be the
+targets of resampling. If treatment is viewed as a random factor, then the
+stimuli used in experiment A can be replaced with other stimuli in experiment B (see sec. 2.2 for a discussion of whether it makes sense to treat exp
 
 
-# Thank you! {.center}
-```{css}
-.center h1 {
-  text-align: center;
-}
-```
+## Multiverse analysis: a replicability tool?
 
+- @steegen2016increasing - first contribution 
+
+<center>
+*... one of the sources of the current crisis in scientific replication is that researchers [avoid] considering the multiplicity of choices ...*
+</center>
+
+
+- @dragicevic2019increasing
+
+<center>
+*...a common [...] form of opacity is undisclosed flexibility [...], i.e., not reporting the different options that have been tried during the analysis...*
+</center>
+
+- @calignano2023first
+
+<center>
+*The multiverse approach changes the research focus from the ‘best’ conclusion, toward the robustness of the conclusion across multiple degrees of freedom...*
+</center>
+
+## References
+
+::: {#refs .normal}
+:::
+
+<br><br>
+<center>
+<p> If you're interested in reproducing the R code used in our analysis, we've made it available on GitHub:</p>
+[https://github.com/danigiro/SS23project](github.com/danigiro/SS23project)
+</center>
+
+##  {#thank-id data-menu-title="Thank youe" .center background-image="theme/meme.png"}
+
+<div class="quarto-title-block">
+<div class="center" style="background: rgba(255, 255, 255, 0.75); padding: 15px; border-radius: 3px;">
+<br>
+<h1 class="title" style="text-align: center;">Thank you!</h1>
+<br>
+  <div class="quarto-title-authors" style="text-align: center;">
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">**Patric Dolmeta**</div>
+<p class="quarto-title-affiliation" style="text-align: center;">Bocconi University</p>
+</div>
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">**Anna Gerna**</div>
+<p class="quarto-title-affiliation" style="text-align: center;">Roma3 University </p>
+</div>
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">**Daniele Girolimetto**</div>
+<p class="quarto-title-affiliation" style="text-align: center;">University of Padova</p>
+</div>
+</div>
+<br>
+<p class="date" style="text-align: center;">22 Sept 2023, Padova (Italy)</p>
+</div>
+</div>

@@ -13,7 +13,6 @@
   <meta name="author" content="Patric Dolmeta">
   <meta name="author" content="Anna Gerna">
   <meta name="author" content="Daniele Girolimetto">
-  <meta name="dcterms.date" content="2023-09-22">
   <title>Multiverse Analisys</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +31,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="slide_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slide_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slide_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -335,35 +353,35 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Patric Dolmeta 
+<strong>Patric Dolmeta</strong> 
 </div>
         <p class="quarto-title-affiliation">
-            Bocconi University
+            <em>Bocconi University</em>
           </p>
     </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Anna Gerna 
+<strong>Anna Gerna</strong> 
 </div>
         <p class="quarto-title-affiliation">
-            Roma3 University
+            <em>Roma3 University</em>
           </p>
     </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-<a href="danigiro.github.io/">Daniele Girolimetto</a> 
+<strong>Daniele Girolimetto</strong> 
 </div>
         <p class="quarto-title-affiliation">
-            University of Padova
+            <em>University of Padova</em>
           </p>
     </div>
 </div>
 <br>
-  <p class="date">22 Sep 2023, Padova (Italy)</p>
+  <p class="date">22 September 2023 - Padova (Italy)</p>
   </div>
 </section>
-<section id="why-data-processing-is-an-arbitrary-process" class="slide level2">
-<h2>Why data processing is an arbitrary process</h2>
+<section id="what-is-data-processing" class="slide level2">
+<h2>What is data processing</h2>
 <p>When designing an experiment, data are not just passively recorded, but actively constructed so that they are ready to be analysed.</p>
 <ul>
 <li>excluding data</li>
@@ -372,8 +390,8 @@ Anna Gerna
 </ul>
 <p>As a result, raw data do not uniquely give rise to a single data set for analysis but rather to a <strong>multiverse of data sets</strong>. And as each data set in this data multiverse an lead to a different statistical result, the data multiverse directly implies a <strong>multiverse of statistical result</strong></p>
 </section>
-<section id="why-data-processing-is-an-arbitrary-process-1" class="slide level2">
-<h2>Why data processing is an arbitrary process</h2>
+<section id="what-is-data-processing-1" class="slide level2">
+<h2>What is data processing</h2>
 <ul>
 <li>Selective reporting without justification: researchers’ choices appear to be arbitrary</li>
 <li>This <strong>arbitrariness</strong> is then inherited by the statistical result</li>
@@ -389,42 +407,79 @@ Anna Gerna
 <li><p>It can be performed on large or small datasets, regardless of the <strong>inferential framework</strong> (frequentist or Bayesian), and regardless of the specific way uncertainty is quantified: a p value, an effect size, a confidence interval, or a Bayes factor.</p></li>
 </ul>
 </section>
-<section id="what-is-a-multiverse-analysis-1" class="slide level2">
-<h2>What is a multiverse analysis</h2>
-<p>Here we focus on the multiverse of statistical results originating from the data multiverse (i.e., the different reasonable choices in data processing) but this framework can be applied to choices at the <strong>model level</strong>.</p>
-</section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
 <li><p>Multiverse analysis offers an idea of how much the conclusions change because of arbitrary choices</p></li>
 <li><p>It enhances the transparency in reporting results</p></li>
-<li><p>It helps identifying the key choices that conclusions hinge on, facilitating attempt of replication</p></li>
+<li><p>It helps identifying the key choices that conclusions hinge on, facilitating attempts of replication</p></li>
 <li><p>It helps identifying the level of uncertainty related to the data set, because a pattern of non significant results indicates that the data are not strong enough to draw conclusions</p></li>
 <li><p>It reduces the problem of selective reporting, because the fragility of results is made explicit</p></li>
 </ul>
 </section>
-<section id="what-is-not-a-multiverse-analysis" class="slide level2">
-<h2>What is <strong>not</strong> a multiverse analysis</h2>
+<section id="how-to-do-it" class="slide level2">
+<h2>How to do it</h2>
+<p>When setting up an experiment or performing a statistical analysis there are several degrees of freedom. A multiverse analysis consists in</p>
 <ul>
-<li><p>It has nothing to do with pre-registration</p></li>
-<li><p>It is not a formal test of questionable research practices</p></li>
-<li><p>It does not produce a single value summarizing the evidential value of the data.</p></li>
+<li>identifyig sets of defensible analysis choices</li>
+<li>implementing them</li>
+<li>reporting the outcomes of all possible choice combinations</li>
+</ul>
+
+<img data-src="theme/Analysis.png" style="width:80.0%" class="r-stretch"></section>
+<section id="where-to-intervene" class="slide level2">
+<h2>Where to intervene</h2>
+<ul>
+<li>Data substitution: which raw datasets to use (collected/simulated)</li>
+<li>Data processing: how to process the raw data (data transformation, outlier detection)</li>
+<li>Modeling choices: Statistical model setup (distributional alternatives, parameter tuning, multiplicity correction, prior choices, significance levels)</li>
+<li>Presentation: different ways of presenting analysis outcomes.</li>
 </ul>
 </section>
 <section id="todo" class="slide level2">
 <h2>TODO</h2>
-<p>..</p>
+</section>
+<section id="female-hurricanes-are-deadlier-than-male-hurricanes" class="slide level2">
+<h2>Female hurricanes are deadlier than male hurricanes</h2>
+<ul>
+<li><p>Jung et al.&nbsp;study responses to natural hazards on basis of social science factors</p></li>
+<li><p>Severe hurricanes with feminine names causes more fatalities</p></li>
+<li><p>Do people judge hurricane risks in the context of gender-based expectations?</p></li>
+<li><p>Perception about risk and intensity is associated with sex through the name assigned to the phenomenon</p></li>
+<li><p>Judgment is congruent with the social roles and expectations corresponding to the sex</p></li>
+</ul>
+</section>
+<section id="jungs-universe" class="slide level2">
+<h2>Jung’s universe</h2>
+<ul>
+<li><p>The data: information on 94 hurricanes from National Oceanic and Atmospheric Administration (NOAA) such as number of deaths (deaths), minimum pressure (pressure), wind speed (wind), property damages (damage), severity (category), 11-point femininity scale for the name.</p></li>
+<li><p>The processing: exclusion of the two most deadly and the three most damaging instances.</p></li>
+<li><p>The model: poisson regression model with number of deaths as response and femininity, damages, standardized pressure and their interactions with femininity as predictors.</p></li>
+</ul>
+</section>
+<section id="the-multiverse" class="slide level2">
+<h2>The multiverse</h2>
+<ul>
+<li><p>Data processing: dichotomize the femininity variable</p></li>
+<li><p>Outlier detection:</p>
+<ul>
+<li>damage outlier: 0, 2 or 3 most deadly and the three most damaging instances</li>
+<li>death oulier: 0, 1 or 2 most deadly and the three most damaging instances</li>
+</ul></li>
+<li><p>Model: log-transform linear regession or Poisson regression</p></li>
+<li><p>Covariates choices: choose which covariates and which interactions between them.</p></li>
+</ul>
 </section>
 <section id="female-name-vs-male-name" class="slide level2">
 <h2>Female name vs male name</h2>
 
 <img data-src="slide_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="altro" class="slide level2">
-<h2>altro</h2>
+<section id="model-choice-effect" class="slide level2">
+<h2>Model choice effect</h2>
 
 <img data-src="slide_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="altro-1" class="slide level2">
-<h2>altro</h2>
+<section id="significance-of-mean-effect" class="slide level2">
+<h2>Significance of mean effect</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">norm</a></li><li><a href="#tabset-1-2">boot</a></li><li><a href="#tabset-1-3">boot perc</a></li></ul>
 <div class="tab-content">
@@ -459,14 +514,92 @@ Anna Gerna
 <li><p>Not all options are necessarily exactly interchangeable</p></li>
 </ul>
 </section>
-<section id="thank-you" class="title-slide slide level1 center">
-<h1>Thank you!</h1>
-<div class="cell">
-<style type="text/css">
-.center h1 {
-  text-align: center;
-}
-</style>
+<section id="is-this-replicability" class="slide level2">
+<h2>Is this replicability?</h2>
+<p>Sticking to Machery’s definition of replicability, tions should be conceived as involving the resampling of the experimental components when these are random factors. Each of the experimental components so treated can be the target of resampling. Most obviously, replications nearly always, but not necessarily, involve sampling another group of experimental units from the original population. But the three other experimental components can also be the targets of resampling. If treatment is viewed as a random factor, then the stimuli used in experiment A can be replaced with other stimuli in experiment B (see sec.&nbsp;2.2 for a discussion of whether it makes sense to treat exp</p>
+</section>
+<section id="multiverse-analysis-a-replicability-tool" class="slide level2">
+<h2>Multiverse analysis: a replicability tool?</h2>
+<ul>
+<li><span class="citation" data-cites="steegen2016increasing">Steegen et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> - first contribution</li>
+</ul>
+<center>
+<em>… one of the sources of the current crisis in scientific replication is that researchers [avoid] considering the multiplicity of choices …</em>
+</center>
+<ul>
+<li><span class="citation" data-cites="dragicevic2019increasing">Dragicevic et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></li>
+</ul>
+<center>
+<em>…a common […] form of opacity is undisclosed flexibility […], i.e., not reporting the different options that have been tried during the analysis…</em>
+</center>
+<ul>
+<li><span class="citation" data-cites="calignano2023first">Calignano, Girardi, and Altoè (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></li>
+</ul>
+<center>
+<em>The multiverse approach changes the research focus from the ‘best’ conclusion, toward the robustness of the conclusion across multiple degrees of freedom…</em>
+</center>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="normal references csl-bib-body hanging-indent" role="list">
+<div id="ref-calignano2023first" class="csl-entry" role="listitem">
+Calignano, Giulia, Paolo Girardi, and Gianmarco Altoè. 2023. <span>“First Steps into the Pupillometry Multiverse of Developmental Science.”</span> <em>Behavior Research Methods</em>, 1–20.
+</div>
+<div id="ref-dragicevic2019increasing" class="csl-entry" role="listitem">
+Dragicevic, Pierre, Yvonne Jansen, Abhraneel Sarma, Matthew Kay, and Fanny Chevalier. 2019. <span>“Increasing the Transparency of Research Papers with Explorable Multiverse Analyses.”</span> In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–15.
+</div>
+<div id="ref-steegen2016increasing" class="csl-entry" role="listitem">
+Steegen, Sara, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel. 2016. <span>“Increasing Transparency Through a Multiverse Analysis.”</span> <em>Perspectives on Psychological Science</em> 11 (5): 702–12.
+</div>
+</div>
+<br><br>
+<center>
+<p>
+If you’re interested in reproducing the R code used in our analysis, we’ve made it available on GitHub:
+</p>
+<a href="github.com/danigiro/SS23project">https://github.com/danigiro/SS23project</a>
+</center>
+</section>
+<section id="thank-id" class="slide level2 center" data-menu-title="Thank youe" data-background-image="theme/meme.png">
+<h2></h2>
+<div class="quarto-title-block">
+<div class="center" style="background: rgba(255, 255, 255, 0.75); padding: 15px; border-radius: 3px;">
+<br>
+<h1 class="title" style="text-align: center;">
+Thank you!
+</h1>
+<br>
+<div class="quarto-title-authors" style="text-align: center;">
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">
+<strong>Patric Dolmeta</strong>
+</div>
+<p class="quarto-title-affiliation" style="text-align: center;">
+Bocconi University
+</p>
+</div>
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">
+<strong>Anna Gerna</strong>
+</div>
+<p class="quarto-title-affiliation" style="text-align: center;">
+Roma3 University
+</p>
+</div>
+<div class="quarto-title-author" style="text-align: center;">
+<div class="quarto-title-author-name" style="text-align: center;">
+<strong>Daniele Girolimetto</strong>
+</div>
+<p class="quarto-title-affiliation" style="text-align: center;">
+University of Padova
+</p>
+</div>
+</div>
+<br>
+<p class="date" style="text-align: center;">
+22 Sept 2023, Padova (Italy)
+</p>
+</div>
 </div>
 <div class="footer footer-default">
 <p>Multiverse Analisys - Replicability crisis in Science?</p>
@@ -521,7 +654,7 @@ Anna Gerna
         controlsBackArrows: 'faded',
 
         // Display a presentation progress bar
-        progress: true,
+        progress: false,
 
         // Display the page number of the current slide
         slideNumber: 'c',
@@ -698,7 +831,7 @@ Anna Gerna
         footer.classList.add('hide');
       
         Reveal.on('slidechanged', event => {  
-          if(Reveal.isFirstSlide()) {
+          if(Reveal.isFirstSlide() || Reveal.isLastSlide()) {
             slideNo.classList.add('hide');
             footer.classList.add('hide');
           } else {
