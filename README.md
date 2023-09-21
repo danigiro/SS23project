@@ -1,7 +1,7 @@
 # Multiverse Analisys
 
-Summer School 2023, Replicability crisis in Science? \
-18 -- 22 September 2023, \
+Summer School 2023: **Replicability crisis in Science?** \
+18 - 22 September 2023, \
 University of Padova
 
 *Patric Dolmeta, Anna Gerna, Daniele Girolimetto*
