@@ -1,0 +1,135 @@
+---
+title: "Multiverse Analisys"
+subtitle: "**Summer School 2023** <br> *Replicability crisis in Science?*"
+date: 2023/09/22
+date-format: "DD MMM YYYY"
+author: 
+  - name: Patric Dolmeta
+    affiliations: Bocconi University
+  - name: Anna Gerna
+    affiliations: Roma3 University 
+  - name: Daniele Girolimetto
+    url: "danigiro.github.io/"
+    affiliations: University of Padova
+title-slide-attributes:
+  data-background-image: theme/image.png
+format: 
+  revealjs: 
+    template-partials:
+        - theme/title-slide.html
+    slide-number: c
+    footer: "Multiverse Analisys - Replicability crisis in Science?"
+    include-after-body: theme/clean_title_page.html
+    fontsize: 24pt
+---
+```{r}
+#| echo: false
+load("Rdata/slideplot.RData")
+library(ggplot2)
+library(gridExtra)
+```
+
+## Why data processing is an arbitrary process
+
+When designing an experiment, data are not just passively recorded, but actively constructed so that they are ready to be analysed. 
+
+- excluding data
+- transforming variables
+- coding data
+
+As a result, raw data do not uniquely give rise to a single data set for analysis but rather to a **multiverse of data sets**. 
+And as each data set in this data multiverse an lead to a different statistical result, the data multiverse directly implies a **multiverse of statistical result**
+
+## Why data processing is an arbitrary process
+
+- Selective reporting without justification: researchers' choices appear to be arbitrary
+- This **arbitrariness** is then inherited by the statistical result
+- The inevitable arbitrariness in the data and the sensitivity of the result are hidden to the reader
+- In the end, it is impossible to evaluate the robustness of the finding
+
+## What is a multiverse analysis 
+
+- Multiverse analysis allows the researchers to perform the analyses of interest **across the whole set of data sets** that could arise from different choices in data processing.
+
+- It is related to the idea of the **garden of forking paths** in data analysis
+
+- It can be performed on large or small datasets, regardless of the **inferential framework** (frequentist or Bayesian), and regardless of the specific way uncertainty is quantified: a p value, an effect size, a confidence interval, or a Bayes factor. 
+
+## What is a multiverse analysis 
+
+Here we focus on the multiverse of statistical results originating from the data multiverse (i.e., the different reasonable choices in data processing) but this framework can be applied to choices at the **model level**.
+
+## Goals 
+
+- Multiverse analysis offers an idea of how much the conclusions change because of arbitrary choices 
+
+- It enhances the transparency in reporting results 
+
+- It helps identifying the key choices that conclusions hinge on, facilitating attempt of replication
+
+-  It helps identifying the level of uncertainty related to the data set, because a pattern of non significant results indicates that the data are not strong enough to draw conclusions
+
+- It reduces the problem of selective reporting, because the fragility of results is made explicit
+
+## What is **not** a multiverse analysis 
+
+-  It has nothing to do with pre-registration
+
+-  It is not a formal test of questionable research practices
+
+-  It does not produce a single value summarizing the evidential value of the data. 
+
+
+## TODO
+
+..
+
+
+## Female name vs male name
+
+```{r}
+plot(g) 
+```
+
+## altro
+
+```{r}
+plot(gmod) 
+```
+
+## altro
+
+::: {.panel-tabset}
+### norm
+```{r}
+plot(gcheck_norm) 
+```
+
+### boot
+```{r}
+plot(gcheck_basic) 
+```
+
+### boot perc
+```{r}
+plot(gcheck_perc) 
+```
+
+:::
+
+
+## Limits
+
+-  A multiverse analysis is highly context specific and subjective
+
+-  Not all options are necessarily exactly interchangeable
+
+
+
+# Thank you! {.center}
+```{css}
+.center h1 {
+  text-align: center;
+}
+```
+
