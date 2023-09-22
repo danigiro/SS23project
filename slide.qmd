@@ -89,9 +89,6 @@ When setting up an experiment or performing a statistical analysis there are sev
 - Modeling choices: Statistical model setup (distributional alternatives, parameter tuning, multiplicity correction, prior choices, significance levels) 
 - Presentation: different ways of presenting analysis outcomes. 
 
-
-## TODO
-
 ## Female hurricanes are deadlier than male hurricanes
 
 - Jung et al. study responses to natural hazards on basis of social science factors
@@ -124,6 +121,26 @@ When setting up an experiment or performing a statistical analysis there are sev
 - Model: log-transform linear regession or Poisson regression 
 
 - Covariates choices: choose which covariates and which interactions between them. 
+
+## The `multiverse` package 
+
+- The goal of `multiverse` is to allow users to create a multitude of end-to-end analyses in a concise and easily interpretable manner. 
+
+- It can be used in different environments such as in `RMarkdown` and `RScripts`. 
+
+- `multiverse` takes user declared code, rewrites it into multiple executable `R` code versions each corresponding to an analysis path in the multiverse.
+
+- Several practical examples are provided for different scientific fields. 
+
+- Links
+  - [https://mucollective.github.io/multiverse/](mucollective.github.io/multiverse/)
+  - [https://cran.r-project.org/package=multiverse](cran.r-project.org/package=multiverse)
+
+##  {#webslide data-menu-title="webslide"}
+
+<center>
+<iframe src="https://mucollective.github.io/multiverse/" style="width:1000px; height:500px"></iframe>
+</center>
 
 ## Female name vs male name
 
@@ -158,21 +175,15 @@ plot(gcheck_perc)
 :::
 
 
-## Limits
+## Comments
 
 -  A multiverse analysis is highly context specific and subjective
 
--  Not all options are necessarily exactly interchangeable
+Yes, but it's still less subjective than choosing just one of the possible combinations
 
-## Is this replicability?
+-  Do I have to test all possible combinations?
 
-Sticking to Machery's definition of replicability, tions should be conceived as involving
-the resampling of the experimental components when these are random factors. Each of the experimental components so treated can be the target of
-resampling. Most obviously, replications nearly always, but not necessarily,
-involve sampling another group of experimental units from the original
-population. But the three other experimental components can also be the
-targets of resampling. If treatment is viewed as a random factor, then the
-stimuli used in experiment A can be replaced with other stimuli in experiment B (see sec. 2.2 for a discussion of whether it makes sense to treat exp
+The goal of multiverse analysis is not to test the whole set of possible combinations: the researcher should always justify why she/he wants to test that specific choices. 
 
 
 ## Multiverse analysis: a replicability tool?
@@ -229,6 +240,6 @@ stimuli used in experiment A can be replaced with other stimuli in experiment B 
 </div>
 </div>
 <br>
-<p class="date" style="text-align: center;">22 Sept 2023, Padova (Italy)</p>
+<p class="date" style="text-align: center;">22 September 2023, Padova (Italy)</p>
 </div>
 </div>
