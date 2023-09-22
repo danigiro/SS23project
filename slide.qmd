@@ -1,5 +1,5 @@
 ---
-title: "Multiverse Analisys"
+title: "Multiverse Analysis"
 subtitle: "**Summer School 2023** <br> *Replicability crisis in Science?*"
 date: last-modified
 date-format: "[22 September] YYYY [- Padova (Italy)]"
@@ -115,8 +115,8 @@ When setting up an experiment or performing a statistical analysis there are sev
 
 - Outlier detection:
   
-  - damage outlier: 0, 2 or 3 most deadly and the three most damaging instances
-  - death oulier: 0, 1 or 2 most deadly and the three most damaging instances
+  - damage outlier: 0, 1, 2 or 3 most damage 
+  - death oulier: 0, 1 or 2 most deadly
 
 - Model: log-transform linear regession or Poisson regression 
 
