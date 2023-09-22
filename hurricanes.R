@@ -27,6 +27,17 @@ set_panel_heights <- function(g, x, y){
   }
   g
 }
+extract_ICmean <- function(x, y){
+  methods <- c("norm","basic", "perc")
+  out <- t(sapply(setNames(methods, methods),
+                  function(z){
+                    DescTools::MeanDiffCI(x, y,
+                                          method = z)
+                  }
+  ))
+  colnames(out) <- c("mean", "ICd", "ICu")
+  list(as_tibble(out, rownames = "type"))
+}
 
 ####### Multiverse analysis ----
 data("hurricane")
@@ -132,42 +143,6 @@ info <- multiverse_object |>
 
 
 # Plot dataset
-dataplot <- multiverse_object |>
-  extract_variables(disagg_fit) |>
-  select(.universe, disagg_fit, model) |>
-  unnest(disagg_fit) |>
-  mutate(expected_deaths = pred2expectation_2(model, fitted, sigma)) |> 
-  group_by(.universe, female) |>
-  select(.universe, female, expected_deaths, se.residual, deg_f, se.fit) |>
-  summarise(mean_deaths = mean(expected_deaths), 
-            S2 = var(expected_deaths),
-            deg_f = length(deg_f),
-            .groups = "drop") |>
-  pivot_wider(values_from = c(mean_deaths, deg_f, S2), names_from = female) |>
-  #mutate(mean = mean_deaths_1-mean_deaths_0,
-  #       S2 = ((deg_f_0-1)*S2_0+(deg_f_1-1)*S2_1)/(deg_f_0+deg_f_1-2),
-  #       ICd = mean - qnorm(0.975)*sqrt(S2*((1/deg_f_0)+(1/deg_f_1))),
-  #       ICu = mean + qnorm(0.975)*sqrt(S2*((1/deg_f_0)+(1/deg_f_1)))) |>
-  left_join(info, by = ".universe")  |>
-  arrange(mean) %>%
-  mutate(.id = 1:nrow(.),
-         check = ifelse(ICd>0 | ICu<0, "outside the confidence interval", "inside"),
-         original = .universe == 1375)
-
-DescTools::MeanDiffCI(rnorm(100), rnorm(100),
-                      method = "bca")[1]
-
-extract_ICmean <- function(x, y){
-  methods <- c("norm","basic", "perc")
-  out <- t(sapply(setNames(methods, methods),
-         function(z){
-           DescTools::MeanDiffCI(x, y,
-                                 method = z)
-         }
-    ))
-  colnames(out) <- c("mean", "ICd", "ICu")
-  list(as_tibble(out, rownames = "type"))
-}
 dataplot <- multiverse_object |>
   extract_variables(disagg_fit) |>
   select(.universe, disagg_fit, model) |>
